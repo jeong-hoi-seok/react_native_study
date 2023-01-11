@@ -4,7 +4,11 @@ import {
     createNativeStackNavigator,
     NativeStackScreenProps,
 } from '@react-navigation/native-stack';
-import { Text, TouchableHighlight, View } from 'react-native';
+import {
+    Text,
+    View,
+    TouchableHighlight,
+} from 'react-native';
 import { useCallback } from 'react';
 
 type RootStackParamList = {
@@ -15,16 +19,23 @@ type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type DetailsScreenProps = NativeStackScreenProps<ParamListBase, 'Details'>;
 
 function HomeScreen({ navigation }: HomeScreenProps) {
+    
     const onClick = useCallback(() => {
         navigation.navigate('Details');
     }, [navigation]);
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableHighlight onPress={onClick}>
+    <>
+        <View style={{ flex: 1, backgroundColor: 'red', justifyContent: 'center', alignItems: 'flex-end'}}>
+            <TouchableHighlight
+                underlayColor={'white'}
+                onPress={onClick}
+            >
                 <Text>홈 화면</Text>
             </TouchableHighlight>
         </View>
+        <View style={{flex: 2, backgroundColor: 'blue'}}></View>
+    </>
     );
 }
 
