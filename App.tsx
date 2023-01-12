@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { useCallback } from 'react';
 
+//타입스크립트 형식 **필수
 type RootStackParamList = {
     Home: undefined;
     Details: undefined;
@@ -18,7 +19,7 @@ type RootStackParamList = {
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type DetailsScreenProps = NativeStackScreenProps<ParamListBase, 'Details'>;
 
-function HomeScreen({ navigation }: HomeScreenProps) {
+function HomeScreen({ navigation, route }: HomeScreenProps) {
     
     const onClick = useCallback(() => {
         navigation.navigate('Details');
